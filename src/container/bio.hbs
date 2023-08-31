@@ -1,0 +1,184 @@
+<div>
+    <main>
+        <section>
+            <div>
+                <img src="{{img.href}}" alt="{{name}}" width="100%">
+            </div>
+            <br>
+            <div align="center">
+                <h1>{{name}}</h1>
+                <b>({{birthdate}}) - ({{deathdate}})</b>
+            </div>
+            <hr align="center">
+            <table border="0">
+                <tr>
+                    <td>
+                        <p align="center">
+                            <b>Народився</b>
+                        <br>
+                        <br>
+                        {{birthplace}}
+                        </p>
+                    </td>
+                    <td></td>
+                    <td>
+                        <p align="center">
+                            <b>Помер</b>
+                        <br>
+                        <br>
+                        {{deathplace}}
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div>
+                            <b>Національність</b> - {{nationality}}
+                            <br>
+                            <b>Професія</b> - {{occupation}}
+                            <br>
+                            <b>Знання</b> - {{known_for}}
+                            
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div>
+                            <b>Навчався в </b>
+                            {{#each education}}
+                                {{institution}} ,
+                                {{year}} ,
+                                {{field}} ,
+                                {{degree}}
+                            {{/each}}
+                        </div>
+                        <hr align="center">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <h3>Публікації</h3>
+                            <div align="left">
+                                <ul>
+                                    {{#each notable_publications}}
+                                    <li >
+                                        {{title}}
+                                        <br>
+                                        {{year}}
+                                        <br>
+                                        {{publisher}}
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <h3>Дружини</h3>
+                            <div align="left">
+                                <ul>
+                                    {{#each partners}}
+                                    <li >
+                                        {{name}} ,
+                                        {{years}} ,
+                                        {{relationship}}
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <h3>Перемії</h3>
+                            <div align="left">
+                                <ul>
+                                    {{#each awards}}
+                                    <li >
+                                        {{title}} ,
+                                        {{year}} ,
+                                        {{description}}
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                        <br>
+                        <hr align="center">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div>
+                            <em><b>Брав приклад з таких відомих людей :</b></em> {{influences}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div>
+                            <em><b>Брали приклад з нього :</b></em> {{influenced}}
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <h3>Найвідоміші його цитати</h3> 
+                            <div>
+                                {{#each quotes}}
+                                    <q>{{.}}</q>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <h3>Відкриття</h3> 
+                            <ol>
+                                <div>
+                                    {{#each major_discoveries}}
+                                    <li>
+                                        {{title}} , {{year}} , {{description}}
+                                    </li>
+                                    {{/each}}
+                                </div>
+                            </ol>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <div align="center">
+                            <h3>Внески</h3> 
+                            <ul>
+                                <div align="left">
+                                    {{#with contributions}}
+                                    <li>
+                                        <em>{{title}}</em>
+                                        <br> 
+                                        {{year}} 
+                                        <br> 
+                                        {{description}}
+                                        <br>
+                                        {{field}}
+                                    </li>
+                                    {{/with}}
+                                </div>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </main>
+</div>
