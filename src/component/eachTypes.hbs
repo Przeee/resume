@@ -1,0 +1,11 @@
+<ul>
+    {{#if br}}
+        {{#each typel}}
+            <li><strong>{{name}}</strong><br><em>{{type}}</em></li>
+        {{/each}}
+    {{else}}
+        {{#each typel}}
+            <li>{{.}}</li>
+        {{/each}}
+    {{/if}}
+</ul>

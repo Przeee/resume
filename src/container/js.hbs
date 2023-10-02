@@ -1,0 +1,49 @@
+<main>
+    <section>
+        <div>
+            <h1 align="center">{{name}}</h1>
+            <em>{{description}}</em>
+            {{#with history}}
+                <date>{{year}}</date>, {{founder}}
+            {{/with}}
+            <br>
+        </div>
+        <br>
+        <div>
+            <b>Типи: </b>{{> eachTypes typel=types}}
+        </div>
+        <hr>
+        <div>
+            <b>Syntax:</b>
+            {{#with syntax}}
+                <ul>
+                    <li><b>Variables:</b>{{> eachTypes typel=variables}}<br></li>
+                    <li><b>Functions:</b>{{> eachTypes typel=functions}}<br></li>
+                    <li><b>Conditionals:</b>{{> eachTypes typel=conditionals}}<br></li>
+                    <li><b>Loops:</b>{{> eachTypes typel=loops}}<br></li>
+                    <li><b>Classes:</b>{{> eachTypes typel=classes}}<br></li>
+                </ul>
+            {{/with}}
+        </div>
+        <hr>
+        <div>
+            <b>Features:</b>{{> eachTypes typel=features}}
+            <br>
+            <hr>
+        </div>
+        <div>
+            <b>Libraries:</b>{{> eachTypes typel=libraries}}
+            <br>
+            <hr>
+        </div>
+        <div>
+            <b>Tools:</b>{{> eachTypes typel=tools}}
+            <br>
+            <hr>
+        </div>
+        <div>
+            <b>Community:</b>{{> eachTypes typel=community br=true}}
+            <br>
+        </div>
+    </section>
+</main>
