@@ -945,7 +945,7 @@ router.get('/task21', function (req, res) {
         title: 'Outdated HTML tags',
         text: 'tags that have been identified as deprecated and not recommended for use in HTML version 5',
         button: {
-          text: 'Орen',
+          text: 'Open',
         },
       },
       header_text: 'Sections',
