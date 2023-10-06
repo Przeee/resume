@@ -1,0 +1,42 @@
+<main>
+    <section>
+        <div>
+            <h1>{{name}}</h1>
+        </div>
+        <hr>
+        <div>
+            <ul>
+                {{#each users}}
+                    <li>
+                        {{> facebookMembers}}
+                        <h2>Friends</h2>
+                        <ul>
+                            {{#each friends}}
+                            <li>
+                                {{> facebookMembers}}
+                                <br>
+                                {{#if mutual_friends}}
+                                    <h3>Mutual friends</h3>
+                                    <ul>
+                                        {{#each mutual_friends}}
+                                            {{> facebookMembers}}
+                                        {{/each}}
+                                    </ul>
+                                {{/if}}
+                            </li>
+                            {{/each}}
+                        </ul>
+                    </li>
+                    <hr width="100">
+                    {{#if groups}}
+                        <h2>Groups</h2>
+                        {{#each groups}}
+                            {{> facebookMembers}}
+                        {{/each}}
+                    {{/if}}
+                    <hr>
+                {{/each}}
+            </ul>
+        </div>
+    </section>
+</main>
