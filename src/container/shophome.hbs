@@ -1,0 +1,100 @@
+<main class="p-2">
+    <section class="card my-2">
+        {{#with navigation}}
+            <div class="row nav">
+                {{#each links}}
+                    <div class="nav-item col-2">
+                        <a class="nav-link" href="{{href}}">{{text}}</a>
+                    </div>
+                {{/each}}
+            </div>
+        {{/with}}
+    </section>
+    <section class="row g-2 mt-5">
+        {{#with newsBlock}}
+            <h1 class="text-center col-12">
+                    {{title}}
+            </h1>
+            {{#each cards}}
+                <div class="card text-bg-dark col-3 p-1">
+                    <div class="card-header">
+                        {{title}}
+                        {{#if isNew}}<button class="btn btn-success badge rounded-pill text-uppercase">new</button>{{/if}}
+                        {{#if isTop}}<button class="btn btn-danger badge rounded-pill text-uppercase">top</button>{{/if}}
+                    </div>
+                    <div class="card-body">{{description}}</div>
+                </div>
+            {{/each}}
+        {{/with}}
+    </section>
+    <hr class="my-5">
+    <section class="row g-2 p-2">
+        {{#with goodsBlock}}
+            <div class="nav nav-tabs mb-5">
+                {{#each tabs}}
+                    <div class="nav-item col-2">
+                        <button class="nav nav-link {{#if isActive}}active{{else}}{{#if isDisabled}}disabled{{/if}}{{/if}}" href="#" >{{text}}</button>
+                    </div>
+                {{/each}}
+            </div>
+            {{#each cards}}
+                <div class="card col-4 p-0">
+                    <img class="card-img-top" src="{{image}}">
+                    <div class="card-body">
+                        <div class="card-title">
+                            {{title}}
+                            {{#if isNew}}<button class="btn btn-primary badge rounded-pill text-uppercase">new</button>{{/if}}
+                            {{#if isHot}}<button class="btn btn-warning badge rounded-pill text-uppercase">hot!</button>{{/if}}
+                        </div>
+                        {{description}}
+                    </div>
+                </div>
+            {{/each}}
+        {{/with}}
+    </section>
+    <hr class="my-5">
+    <section class="row g-2">
+        {{#with subscribe}}
+            <div class="card text-bg-dark">
+                <h2>{{header}}</h2>
+                <p>{{description}}</p>
+                <div class="col-3">
+                    {{#each buttons}}
+                        <button class="btn btn-primary mb-3" href="{{link}}">{{text}}</button>
+                        <br>
+                    {{/each}}
+                </div>
+                
+            </div>
+        {{/with}}
+
+    </section>
+    <hr class="my-5">
+    <section class="row g-2">
+        {{#with service}}
+            <div class="card text-bg-success text-center">
+                <h2>{{title}}</h2>
+                <p>{{description}}</p>
+                <div>
+                    {{#each buttons}}
+                        <button class="btn btn-primary mb-3" href="{{link}}">{{text}}</button>
+                        <br>
+                    {{/each}}
+                </div>
+                
+            </div>
+        {{/with}}
+
+    </section>
+    <hr class="my-5">
+    <section class="row g-2">
+            {{#each footer}}
+                <div class="col-2">
+                        {{#each this}}
+                            <a class="{{#if stop}}text-dark{{/if}}" href="{{this.link}}">{{this.text}}</a>
+                            <br>
+                        {{/each}}
+                </div>
+            {{/each}}
+    </section>
+</main>
