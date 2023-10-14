@@ -1,0 +1,13 @@
+<section class="row">
+            <div class="card col-12">
+                {{#with navigation}}
+                <div class="nav">
+                    {{#each links}}
+                    <span class="nav-item m-2">
+                        <a class="nav-link p-0 {{#unless href}}disabled{{/unless}}" href="{{href}}">{{text}}</a>
+                    </span>
+                    {{/each}}
+                </div>
+                {{/with}}
+            </div>
+</section>
