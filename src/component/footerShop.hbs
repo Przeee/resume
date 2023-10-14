@@ -1,0 +1,8 @@
+{{#each footer}}
+    <div class="col-2">
+        {{#each this}}
+            <a class="{{#if stop}}text-dark{{/if}}" href="{{this.link}}">{{this.text}}</a>
+            <br>
+        {{/each}}
+    </div>
+{{/each}}
