@@ -1,0 +1,136 @@
+<main class="p-5">
+    
+    {{> navShop}}
+
+    <section class="my-5">
+        <div class="nav">
+            {{#each breadcrumb}}
+                <div class="nav-item">
+                    <a class="nav-link {{#unless url}}disabled{{/unless}} pt-0 ps-0" href="{{url}}">{{name}}</a>
+                </div>
+                <div class="nav-item pe-3">{{#unless url}}{{else}}/{{/unless}}</div>
+            {{/each}}
+        </div>
+    </section>
+    <section>
+        <div class="display-6 mb-5"><b>{{header}}</b></div>
+        <div class="row">
+            {{#each sortBlock}}
+                <div class="col-3">
+                    <select class="form-select">
+                        <option selected>{{placeholder}}</option>
+                            {{#each options}}
+                                <option value="{{value}}">{{text}}</option>
+                            {{/each}}
+                    </select>
+                </div>
+            {{/each}}
+        </div>
+    </section>
+    <section class="row g-2 mt-4 mb-5">
+        <div class="col-4">
+            {{#with filterBlock}}
+                <div class="card p-2">
+                    <div>
+                        {{#with sellers}}
+                            <div class="mb-2">{{title}}</div>
+                            <div>
+                                {{#each list}}
+                                    <div><input type="checkbox" class="me-2">{{value}}</div>
+                                {{/each}}
+                            </div>
+                        {{/with}}
+                    </div>
+                    <hr>
+                    <div>
+                        {{#with brands}}
+                            <div class="mb-3">{{title}}</div>
+                            <div class="mb-2"><input class="form-control" placeholder="{{input.placeholder}}"></div>
+                            <div>
+                                {{#each options}}
+                                    <div><input type="checkbox" class="me-2">{{value}}</div>
+                                {{/each}}
+                            </div>
+                        {{/with}}
+                    </div>
+                    <hr>
+                    <div>
+                        {{#with price}}
+                            <div class="mb-3">{{title}}</div>
+                            <div class="mb-2"><input class="form-control" placeholder="{{range.from}}"></div>
+                            <div class="mb-3"><input class="form-control" placeholder="{{range.to}}"></div>
+                            <div class=""><button class="btn btn-outline-secondary px-3 py-1" href="{{button.link}}">{{button.text}}</button></div>
+                        {{/with}}
+                    </div>
+                    <div>
+                        {{#each filterList}}
+                            <hr>
+                            <div class="mb-2">{{title}}</div>
+                            <div>
+                                {{#each options}}
+                                    <div><input type="checkbox" class="me-2">{{value}}</div>
+                                {{/each}}
+                            </div>
+                        {{/each}}
+                    </div>
+                </div>
+            {{/with}}
+        </div>
+        <div class="col-8">
+            <div class="row g-2">
+                {{#each goodsList}}
+                    <div class="card col-6 p-0">
+                        <img class="card-img" src="{{img}}" alt="{{name}}">
+                        <div class="card-body">
+                            <div class="card-title">
+                                <div class="mb-4">
+                                    {{#if isHot}}<button class="btn btn-warning text-light badge">HOT!</button>{{/if}}
+                                    {{#if isNew}}<button class="btn btn-primary badge">Нове</button>{{/if}}
+                                </div>
+                                <div>
+                                    {{#if isFast}}<div class="mb-2"><button class="btn btn-success badge">Швидка доставка</button></div>{{/if}}
+                                    {{#if isFree}}<div class="mb-2"><button class="btn btn-secondary badge">Безкоштовна доставка</button></div>{{/if}}
+                                </div>
+                            </div>
+                            <h5><b>{{name}}</b></h5>
+                            <div class="mb-2">{{review.amount}} {{review.text}}</div>
+                            <h4 class="">{{price}}</h4>
+                            <div class="mb-2">{{delivery}}</div>
+                            <div class="mb-3">
+                                {{#each buttons}}
+                                    <div>
+                                        <button class="btn {{#if isPrimary}}btn-primary{{/if}}{{#if isSecondary}}btn-secondary{{/if}} mb-2" href="{{link}}">{{text}}</button>
+                                    </div>
+                                {{/each}}
+                            </div>
+                            <div class="">
+                                <ul>
+                                    {{#each characteristics}}
+                                        <li>{{title}}: {{value}}</li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </section>
+    <section>
+        {{#with service}}
+            <div class="card text-bg-success text-center p-2">
+                <h2 class="mb-2">{{title}}</h2>
+                <p class="mb-4">{{description}}</p>
+                {{#each buttons}}
+                <div>
+                    <button class="btn btn-primary" href="{{link}}">{{text}}</button>
+                </div>
+                {{/each}}
+            </div>
+        {{/with}}
+    </section>
+    <hr class="mt-5">
+    <section class="row p-2">
+        {{> footerShop}}
+    </section>
+</main>
