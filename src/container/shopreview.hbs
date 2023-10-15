@@ -1,0 +1,151 @@
+<main class="p-5">
+
+    {{> navShop}}
+
+    <section class="row mt-5">
+        <div class="col-8">
+            {{#with formBlock}}
+                <div class="display-6 mb-4"><b>{{header}}</b></div>
+                <p class="mb-4">
+                    {{#with rating}}
+                        {{title}}: {{value}}
+                    {{/with}}
+                </p>
+                {{#with actionBlock}}
+                    <div class="nav nav-tabs">
+                            {{#each tabs}}
+                                <div class="nav-item px-5">
+                                    <button class="nav-link {{#if isActive}}active{{/if}}" href="#">{{text}}</button>  
+                                </div>
+                            {{/each}}
+                    </div>
+                    <hr class="my-5">
+                    <div class="card p-3">
+                        <div class="row">
+                            {{#with report}}
+                                <h5>{{title}}</h5>
+                                <div class="col-4">
+                                    <button class="btn btn-secondary" href="button.link">{{button.text}}</button>
+                                </div>
+                            {{/with}}
+                        </div>
+                    </div>
+                {{/with}}
+                <hr class="my-5">
+                <div class="">
+                    {{#with feedbackBlock}}
+                        <div class="display-6 mb-4"><b>{{title}}</b></div>
+                        <div class="">
+                            {{#each buttons}}
+                                <button class="btn {{#if isWarning}}btn-warning text-light{{else}}{{#if isSuccess}}btn-success{{else}}{{#if isDanger}}btn-danger{{/if}}{{/if}}{{/if}} me-2" href="{{link}}">{{text}}</button>
+                            {{/each}}
+                        </div>
+                    {{/with}}
+                </div>
+            </div>
+            <div class="col-4">
+                {{#with goodsInfo}}
+                    <div class="card p-3 mb-3">
+                        <div class="pb-3">
+                            <img src="{{photo}}" alt="{{name}}">
+                        </div>
+                        <h5>{{name}}</h5>
+                    </div>
+                    <div class="card p-3 pb-1 mb-3">
+                        <h5>{{price}}</h5>
+                        <p>{{#if inMarket}}Є в наявності{{/if}}</p>
+                        <div>
+                            {{#each buttons}}
+                                <div class="mb-2">
+                                    <button class="btn {{#if isPrimary}}btn-primary{{else}}{{#if isSecondary}}btn-secondary{{/if}}{{/if}} me-2" href="{{link}}">{{text}}</button>
+                                </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    <div class="card p-3">
+                            {{#with seller}}
+                                <div>{{title}}: <b>{{value}}</b></div>
+                            {{/with}}
+                    </div>
+                {{/with}}
+
+            </div>
+        {{/with}}
+    </section>
+    <hr class="my-5">
+    <section>
+        {{#each reviewList}}
+        <div class="card p-3 mb-5">
+            <div class="list-group">
+                <div class="list-group-item p-2">
+                    {{#with title}}
+                        <h5><b>{{userName}}</b></h5>
+                        <div>{{caption}}</div>
+                        <div><date>{{date}}</date></div>
+                    {{/with}}
+                </div>
+                <div class="list-group-item p-2 mb-4">
+                    {{#with reviewBody}}
+                        <div class="mb-3">
+                            {{#with seller}}
+                                {{title}}: {{value}}
+                            {{/with}}
+                        </div>
+                        <div class="mb-3">
+                            {{#with rating}}
+                                {{title}}: {{value}}
+                            {{/with}}
+                        </div>
+                        <div class="mb-3">
+                            {{#each text}}
+                                <div class="mb-2">{{.}}</div>
+                            {{/each}}
+                        </div>
+                        <div class="mb-3">
+                            {{#with advantages}}
+                                <b>{{title}}:</b> {{text}}
+                            {{/with}}
+                        </div>
+                        <div class="mb-3">
+                            {{#with disadvantages}}
+                                <b>{{title}}:</b> {{text}}
+                            {{/with}}
+                        </div>
+                        <div>
+                            {{#each images}}
+                                <img src="{{.}}" alt="img">
+                            {{/each}}
+                        </div>
+                </div>
+                <div>
+                    {{#each coments}}
+                        <div class="card p-2 ms-5 mb-4">
+                            <h6><b>{{userName}}</b></h6>
+                            <div><data>{{date}}</data></div>
+                            <p>{{text}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            {{/with}}
+            </div>
+        </div>
+        {{/each}}
+    </section>
+    <section>
+        {{#with service}}
+            <div class="card text-bg-success text-center p-2">
+                <h2 class="mb-2">{{title}}</h2>
+                <p class="mb-4">{{description}}</p>
+                {{#each buttons}}
+                <div>
+                    <button class="btn btn-primary" href="{{link}}">{{text}}</button>
+                </div>
+                {{/each}}
+            </div>
+        {{/with}}
+    </section>
+    <hr class="mt-5">
+    <section class="row p-2">
+        {{> footerShop}}
+    </section>
+</main>
